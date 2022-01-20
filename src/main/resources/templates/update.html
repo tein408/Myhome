@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+							<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h2>글 수정</h2>
+									</header>
+
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12">
+												<input type="text" name="title" id="title" value="" placeholder="제목" />
+											</div>
+											<!-- Break -->
+											<div class="col-12">
+												<textarea name="content" id="content" placeholder="내용" rows="6"></textarea>
+											</div>
+											<!-- Break -->
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="등록" class="primary" /></li>
+													<li><input type="reset" value="취소" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+				<div th:replace="fragments/sidebar :: sidebar"></div>
+
+			</div>
+
+		<!-- Scripts -->
+		<div th:replace="fragments/script :: script"></div>
+
+
+	</body>
+</html>
