@@ -32,8 +32,8 @@
 									<div class="col-6 col-12-small">
 										<ul class="actions">
 											<li><a href="/generic" class="button primary">목록</a></li>
-											<li><a th:href="@{/generic/update/{id}(id=${board.id})}" class="button">수정</a></li>
-											<li><a th:href="@{/generic/delete/{id}(id=${board.id})}" class="button">삭제</a></li>
+											<li><a th:href="@{/generic/{id}/edit (id=${board.id})}" class="button">수정</a></li>
+											<li><a th:href="@{/generic/{id}/delete (id=${board.id})}" class="button">삭제</a></li>
 										</ul>
 									</div>
 
