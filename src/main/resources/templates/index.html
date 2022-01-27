@@ -44,15 +44,15 @@
 										<h2>최신글</h2>
 									</header>
 									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<h3>글제목1</h3>
-											<p>내용1</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<h3>글제목2</h3>
-											<p>내용2</p>
+										<article th:each="boards : ${boardList}">
+											<a th:href="@{/generic/{id}(id=${boards.getId()})}" class="image">
+												<img src="images/pic01.jpg" alt="" />
+											</a>
+											<h2 th:text="${boards.getTitle()}"></h2>
+											<p th:text="${boards.getContent()}"></p>
+											<ul class="actions">
+												<li><a th:href="@{/generic/{id}(id=${boards.getId()})}" class="button">더보기</a></li>
+											</ul>
 										</article>
 									</div>
 								</section>
