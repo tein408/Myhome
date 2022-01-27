@@ -19,4 +19,8 @@ public class BoardService {
         return boardRepository.findAll();
     }
 
+    public Board findOne(Long id) {
+        return boardRepository.findOne(id);
+    }
+
 }
