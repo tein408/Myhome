@@ -15,6 +15,13 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
+    @Transactional
+    public Long save(Board board) {
+        boardRepository.save(board);
+        return board.getId();
+    }
+
+
     public List<Board> findBoards() {
         return boardRepository.findAll();
     }

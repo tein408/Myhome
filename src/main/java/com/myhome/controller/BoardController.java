@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -28,6 +29,22 @@ public class BoardController {
         Board board = boardService.findOne(id);
         model.addAttribute("board", board);
         return "generic/board";
+    }
+
+    @GetMapping(value = "/generic/write")
+    public String createForm(Model model) {
+        model.addAttribute("form", new BoardForm());
+        return "generic/writeForm";
+    }
+
+    @PostMapping(value = "/generic/write")
+    public String create(BoardForm boardForm) {
+        Board board = new Board();
+        board.setTitle(boardForm.getTitle());
+        board.setContent(boardForm.getContent());
+
+        Long id = boardService.save(board);
+        return "redirect:/generic/" + id;
     }
 
 }
