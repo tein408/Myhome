@@ -17,4 +17,8 @@ public class BoardRepository {
         return em.createQuery("select b from Board b", Board.class).getResultList();
     }
 
+    public Board findOne(Long id) {
+        return em.find(Board.class, id);
+    }
+
 }
