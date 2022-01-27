@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+							<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1 th:text="${board.title}"></h1>
+									</header>
+
+
+									<span class="image main"><img src="/images/pic11.jpg" alt="" /></span>
+
+									<p th:text="${board.content}"></p>
+
+									<hr class="major"/>
+
+									<div class="col-6 col-12-small">
+										<ul class="actions">
+											<li><a href="/generic" class="button primary">목록</a></li>
+											<li><a th:href="@{/generic/update/{id}(id=${board.id})}" class="button">수정</a></li>
+											<li><a th:href="@{/generic/delete/{id}(id=${board.id})}" class="button">삭제</a></li>
+										</ul>
+									</div>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+				<div th:replace="fragments/sidebar :: sidebar"></div>
+
+			</div>
+
+		<!-- Scripts -->
+		<div th:replace="fragments/script :: script"></div>
+
+
+	</body>
+</html>
