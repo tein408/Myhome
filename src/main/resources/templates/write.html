@@ -25,14 +25,14 @@
 										<h2>글 쓰기</h2>
 									</header>
 
-									<form method="post" action="#">
+									<form method="post" th:action="@{/board/write}" th:object="${form}">
 										<div class="row gtr-uniform">
 											<div class="col-6 col-12">
-												<input type="text" name="title" id="title" value="" placeholder="제목" />
+												<input type="text" th:field="*{title}" name="title" id="title" placeholder="제목" />
 											</div>
 											<!-- Break -->
 											<div class="col-12">
-												<textarea name="content" id="content" placeholder="내용" rows="6"></textarea>
+												<textarea th:field="*{content}" name="content" id="content" placeholder="내용" rows="6"></textarea>
 											</div>
 											<!-- Break -->
 											<div class="col-12">
