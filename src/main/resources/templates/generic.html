@@ -21,11 +21,19 @@
 
 							<!-- Content -->
 								<section>
-									<header class="main">
-										<h1>게시판</h1>
-									</header>
 
-									<p><span class="image right"><img src="images/pic11.jpg" alt=""/></span>게시판 소개</p>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<header class="main">
+												<h1>게시판</h1>
+											</header>
+											<p>게시판 소개</p>
+										</div>
+
+										<div class="col-6 col-12-small">
+											<p><span class="image fit"><img src="images/pic11.jpg" alt=""/></span></p>
+										</div>
+									</div>
 
 									<div th:each="boards : ${boardList}">
 										<hr class="major"/>
@@ -35,6 +43,7 @@
 											<p th:text="${boards.getContent()}"></p>
 										</a>
 									</div>
+
 
 									<hr class="major" />
 
