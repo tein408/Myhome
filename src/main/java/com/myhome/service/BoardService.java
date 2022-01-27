@@ -21,13 +21,21 @@ public class BoardService {
         return board.getId();
     }
 
-
     public List<Board> findBoards() {
         return boardRepository.findAll();
     }
 
     public Board findOne(Long id) {
         return boardRepository.findOne(id);
+    }
+
+    @Transactional
+    public Board updateBoard(Long id, String title, String content) {
+        Board board = boardRepository.findOne(id);
+        board.setId(id);
+        board.setTitle(title);
+        board.setContent(content);
+        return board;
     }
 
 }

@@ -14,7 +14,11 @@ public class BoardRepository {
     private final EntityManager em;
 
     public void save(Board board) {
-        em.persist(board);
+        if (board.getId() == null) {
+            em.persist(board);
+        } else {
+            em.merge(board);
+        }
     }
 
     public List<Board> findAll() {
