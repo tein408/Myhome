@@ -29,4 +29,9 @@ public class BoardRepository {
         return em.find(Board.class, id);
     }
 
+    public void deleteById(Long id) {
+        Board board = findOne(id);
+        em.remove(board);
+    }
+
 }

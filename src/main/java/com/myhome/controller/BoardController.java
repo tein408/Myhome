@@ -5,10 +5,7 @@ import com.myhome.service.BoardService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -67,6 +64,12 @@ public class BoardController {
         Board newBoard = boardService.updateBoard(id, form.getTitle(), form.getContent());
 
         return "redirect:/generic/" + newBoard.getId();
+    }
+
+    @PostMapping (value = "generic/{id}/delete")
+    public String delete(@PathVariable ("id") Long id) {
+        boardService.deleteById(id);
+        return "redirect:/generic";
     }
 
 
