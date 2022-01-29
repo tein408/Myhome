@@ -33,7 +33,11 @@
 										<ul class="actions">
 											<li><a href="/generic" class="button primary">목록</a></li>
 											<li><a th:href="@{/generic/{id}/edit (id=${board.id})}" class="button">수정</a></li>
-											<li><a th:href="@{/generic/{id}/delete (id=${board.id})}" class="button">삭제</a></li>
+											<li>
+												<form method="post" th:action="@{/generic/{id}/delete (id=${board.id})}">
+													<button type="submit" name="submit" value="delete" class="button">삭제</button>
+												</form>
+											</li>
 										</ul>
 									</div>
 
