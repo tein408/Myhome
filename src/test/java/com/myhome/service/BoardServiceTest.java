@@ -76,4 +76,26 @@ public class BoardServiceTest {
         Assertions.assertEquals(2, boardList.size());
     }
 
+    @Test
+    public void test() throws Exception {
+        //given
+        Board board = new Board();
+        board.setTitle("title");
+        board.setContent("content");
+
+        Board board2 = new Board();
+        board2.setTitle("title2");
+        board2.setContent("content2");
+
+        //when
+        Long boardId = boardService.save(board);
+        boardService.save(board2);
+
+        //then
+        boardService.deleteById(boardId);
+        List<Board> boardList = boardService.findBoards();
+
+        Assertions.assertEquals(1, boardList.size());
+    }
+
 }
