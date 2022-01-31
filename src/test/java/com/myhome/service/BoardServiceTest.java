@@ -33,9 +33,7 @@ public class BoardServiceTest {
         Long boardId = boardService.save(board);
 
         //then
-        Board getBoard = boardRepository.findOne(boardId);
-
-        Assertions.assertEquals(1, getBoard.getId());
+        Assertions.assertEquals(board, boardRepository.findOne(boardId));
     }
 
     @Test
