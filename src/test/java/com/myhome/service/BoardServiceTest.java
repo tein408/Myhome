@@ -75,7 +75,7 @@ public class BoardServiceTest {
     }
 
     @Test
-    public void test() throws Exception {
+    public void 글_삭제_테스트() throws Exception {
         //given
         Board board = new Board();
         board.setTitle("title");
