@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @SpringBootTest
 @Transactional
@@ -52,7 +53,27 @@ public class BoardServiceTest {
         Board getBoard = boardRepository.findOne(boardId);
 
         Assertions.assertEquals("제목수정", getBoard.getTitle());
+    }
 
+    @Test
+    public void 글_전체조회_테스트() throws Exception {
+        //given
+        Board board = new Board();
+        board.setTitle("title");
+        board.setContent("content");
+
+        Board board2 = new Board();
+        board2.setTitle("title2");
+        board2.setContent("content2");
+
+        //when
+        boardService.save(board);
+        boardService.save(board2);
+
+        //then
+        List<Board> boardList = boardService.findBoards();
+
+        Assertions.assertEquals(2, boardList.size());
     }
 
 }
