@@ -37,4 +37,22 @@ public class BoardServiceTest {
         Assertions.assertEquals(1, getBoard.getId());
     }
 
+    @Test
+    public void 글수정테스트() throws Exception {
+        //given
+        Board board = new Board();
+        board.setTitle("title");
+        board.setContent("content");
+
+        //when
+        Long boardId = boardService.save(board);
+        boardService.updateBoard(boardId, "제목수정", "내용수정");
+
+        //then
+        Board getBoard = boardRepository.findOne(boardId);
+
+        Assertions.assertEquals("제목수정", getBoard.getTitle());
+
+    }
+
 }
