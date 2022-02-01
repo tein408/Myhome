@@ -43,4 +43,11 @@ public class BoardService {
         boardRepository.deleteById(id);
     }
 
+    @Transactional
+    public Board addCount(Long id) {
+        Board board = boardRepository.findOne(id);
+        board.setCount(board.getCount() + 1);
+        return board;
+    }
+
 }
