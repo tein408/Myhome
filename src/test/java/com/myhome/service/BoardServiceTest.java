@@ -96,4 +96,19 @@ public class BoardServiceTest {
         Assertions.assertEquals(1, boardList.size());
     }
 
+    @Test
+    public void 조회수() throws Exception {
+        //given
+        Board board = new Board();
+        board.setTitle("title");
+        board.setContent("content");
+
+        //when
+        Long boardId = boardService.save(board);
+        Board findBoard = boardService.addCount(boardId);
+
+        //then
+        Assertions.assertEquals(1, findBoard.getCount());
+    }
+
 }
