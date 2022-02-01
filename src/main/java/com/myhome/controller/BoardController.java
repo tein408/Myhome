@@ -24,7 +24,8 @@ public class BoardController {
 
     @GetMapping(value = "/generic/{id}")
     public String board(@PathVariable ("id") Long id, Model model) {
-        Board board = boardService.findOne(id);
+        Board board = boardService.addCount(id);
+        //boardService.findOne(id);
         model.addAttribute("board", board);
         return "generic/board";
     }
