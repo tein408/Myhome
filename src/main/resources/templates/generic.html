@@ -40,6 +40,7 @@
 
 										<a th:href="@{/generic/{id}(id=${boards.getId()})}" style="color: #7f888f">
 											<h2 th:text="${boards.getTitle()}"></h2>
+											<p th:text="${#dates.format(boards.getCreateDate(), 'yyyy-MM-dd HH:mm')}" style="margin-bottom: 0"></p>
 											<p th:text="${boards.getContent()}"></p>
 										</a>
 									</div>

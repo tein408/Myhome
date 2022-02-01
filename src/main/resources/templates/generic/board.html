@@ -23,6 +23,14 @@
 								<section>
 									<header class="main">
 										<h1 th:text="${board.title}"></h1>
+										<ul style="list-style:none;">
+											<li style="float: left; margin-right: 3em;">
+												<span th:text="${#dates.format(board.createDate, 'yyyy-MM-dd HH:mm')}"></span>
+											</li>
+											<li>
+												<span th:text="${board.count}"></span>
+											</li>
+										</ul>
 									</header>
 
 									<p th:text="${board.content}"></p>
