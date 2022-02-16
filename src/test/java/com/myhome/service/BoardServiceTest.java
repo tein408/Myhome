@@ -33,7 +33,7 @@ public class BoardServiceTest {
         Long boardId = boardService.save(board);
 
         //then
-        Assertions.assertEquals(board, boardRepository.findOne(boardId));
+        Assertions.assertEquals(board.getId(), boardRepository.findOne(boardId).getId());
     }
 
     @Test
@@ -109,6 +109,25 @@ public class BoardServiceTest {
 
         //then
         Assertions.assertEquals(1, findBoard.getCount());
+    }
+
+    @Test
+    public void findOne() throws Exception {
+        //given
+        Board board = new Board();
+        board.setTitle("title");
+        board.setContent("content");
+
+        Board board2 = new Board();
+        board2.setTitle("title2");
+        board2.setContent("content2");
+
+        //when
+        Long boardOne = boardService.save(board);
+        boardService.save(board2);
+
+        //then
+        Assertions.assertEquals(board, boardRepository.findOne(boardOne));
     }
 
 }
