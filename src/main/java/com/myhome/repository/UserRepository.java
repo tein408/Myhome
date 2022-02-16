@@ -20,4 +20,8 @@ public class UserRepository {
         }
     }
 
+    public User findOne(Long uid) {
+        return em.find(User.class, uid);
+    }
+
 }
