@@ -1,0 +1,40 @@
+package com.myhome.service;
+
+import com.myhome.domain.Role;
+import com.myhome.domain.User;
+import com.myhome.repository.UserRepository;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+
+@SpringBootTest
+@Transactional
+class UserServiceTest {
+
+    @Autowired
+    EntityManager em;
+    @Autowired
+    UserService userService;
+    @Autowired
+    UserRepository userRepository;
+
+    @Test
+    public void 회원가입() throws Exception {
+        //given
+        User user = new User();
+        user.setId("아이디");
+        user.setPassword("비밀번호");
+        user.setRole(Role.USER);
+
+        //when
+        Long saveId = userService.save(user);
+
+        //then
+        Assertions.assertEquals(user, userRepository.findOne(saveId));
+    }
+
+}
