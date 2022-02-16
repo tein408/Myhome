@@ -16,6 +16,10 @@ public class Board {
     @Id @GeneratedValue
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
     @Column(nullable = false, length = 100)
     private String title;
 
