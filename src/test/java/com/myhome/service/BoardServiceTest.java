@@ -111,4 +111,23 @@ public class BoardServiceTest {
         Assertions.assertEquals(1, findBoard.getCount());
     }
 
+    @Test
+    public void findOne() throws Exception {
+        //given
+        Board board = new Board();
+        board.setTitle("title");
+        board.setContent("content");
+
+        Board board2 = new Board();
+        board2.setTitle("title2");
+        board2.setContent("content2");
+
+        //when
+        Long boardOne = boardService.save(board);
+        boardService.save(board2);
+
+        //then
+        Assertions.assertEquals(board, boardRepository.findOne(boardOne));
+    }
+
 }
