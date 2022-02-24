@@ -37,4 +37,21 @@ class UserServiceTest {
         Assertions.assertEquals(user, userRepository.findOne(saveId));
     }
 
+    @Test
+    public void 회원정보_수정() throws Exception {
+        //given
+        User user = new User();
+        user.setId("아이디");
+        user.setPassword("비밀번호");
+        user.setRole(Role.USER);
+
+        //when
+        Long saveUid = userService.save(user);
+        userService.updateUser(saveUid, "바꾼비밀번호");
+
+        //then
+        User changeUser = userRepository.findOne(saveUid);
+        Assertions.assertEquals("바꾼비밀번호", changeUser.getPassword());
+    }
+
 }
