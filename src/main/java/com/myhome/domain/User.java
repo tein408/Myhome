@@ -2,8 +2,8 @@ package com.myhome.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 @Entity
 @Getter
 @Setter
+@DynamicInsert
 public class User {
 
     @Id
@@ -23,7 +24,6 @@ public class User {
     @Column(nullable = false, length = 100)
     private String password;
 
-    @ColumnDefault(value = "USER")
     @Enumerated(EnumType.STRING)
     private Role role;
 
