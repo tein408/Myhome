@@ -19,4 +19,11 @@ public class UserService {
         return user.getUid();
     }
 
+    @Transactional
+    public User updateUser(Long uid, String password) {
+        User user = userRepository.findOne(uid);
+        user.setPassword(password);
+        return user;
+    }
+
 }
