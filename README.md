@@ -19,7 +19,7 @@ Spring Boot와 JPA로 만드는 블로그
 ### Front end
 - Thymleaf
 - HTML, CSS
-  - use [Template](html5up.net)
+  - use [Template](https://html5up.net)
 
 ### Utility
 - GitHub
