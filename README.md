@@ -3,7 +3,8 @@ Spring Boot와 JPA로 만드는 블로그
 
 ## 기술스택
 - Front end
-  - Thymleaf, HTML, CSS
+  - Thymleaf
+  - HTML, CSS : [Template](html5up.net)
 - Back end
   - Java
   - Spring Boot
